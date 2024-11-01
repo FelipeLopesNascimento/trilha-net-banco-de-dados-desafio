@@ -1,0 +1,78 @@
+--1
+SELECT 
+	Nome,
+	Ano 
+FROM Filmes
+
+--2
+SELECT
+	Nome,
+	Ano	
+FROM Filmes
+ORDER BY Ano;
+
+--3
+SELECT
+	Nome,
+	Ano,
+	Duracao
+FROM Filmes
+WHERE Nome = 'De Volta para o Futuro';
+
+--4
+SELECT
+	Nome,
+	Ano,
+	Duracao
+FROM Filmes
+WHERE Ano = '1997';
+
+--5
+SELECT
+	Nome,
+	Ano,
+	Duracao
+FROM Filmes
+WHERE Ano > 2000;
+
+--6
+SELECT
+	Nome,
+	Ano,
+	Duracao
+FROM Filmes
+WHERE Duracao > 100 AND Duracao < 150;
+
+--7
+SELECT 
+	Ano, COUNT(*) AS Quantidade
+	FROM Filmes
+	GROUP BY Ano
+	ORDER BY Quantidade DESC;
+
+--8
+SELECT * FROM Atores
+
+--9
+SELECT * FROM Atores
+WHERE Genero = 'F'
+
+--10
+SELECT A.Nome, C.Genero
+ FROM Filmes A
+ LEFT JOIN FilmesGenero B ON A.id = B.idFilme
+ LEFT JOIN Generos C ON B.IdGenero = C.id
+
+ --11
+ SELECT A.Nome, C.Genero
+ FROM Filmes A
+ LEFT JOIN FilmesGenero B ON A.id = B.idFilme
+ LEFT JOIN Generos C ON B.IdGenero = C.id
+ WHERE Genero = 'Mistério'
+
+ --12
+ SELECT A.Nome, C.PrimeiroNome, C.UltimoNome, B.Papel
+ FROM Filmes A
+  JOIN ElencoFilme B ON A.id = B.idFilme
+  JOIN Atores C ON B.IdAtor = C.id
+    
